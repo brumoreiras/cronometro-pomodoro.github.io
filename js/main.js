@@ -5,7 +5,7 @@ let milis = document.querySelector('#milissegundos');
 let contadorMili = 0
 let contadorSeg = 0
 let contadorMin = 0
-let INTERVALO
+let disparar
 
 function contaMilissegundos() {
     contadorMili++
@@ -43,12 +43,20 @@ function contaMinutos() {
 }
 
 function iniciar() {
-    clearInterval(INTERVALO)
-    INTERVALO = setInterval(() => {
+    clearInterval(disparar)
+    disparar = setInterval(() => {
         contaMilissegundos()
     }, 10)
 }
 
 function stop(){
-    clearInterval(INTERVALO)
+    clearInterval(disparar)
 }
+function resetar(){
+    min.innerHTML = '00'
+    seg.innerHTML = '00'
+    milis.innerHTML = '00'
+}
+/* function criaCiclo(resetar){
+    
+} */

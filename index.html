@@ -13,7 +13,7 @@
     <header>
         <h1>Vamos focar nos estudos!</h1>
     </header>
-    <main>
+    <main class="principal">
         <h1>Cronômetro</h1>
         <div class="tempo">
             <p>
@@ -24,16 +24,20 @@
             <div class="botoes">
                 <button onclick="iniciar()" class="iniciar">Iniciar</button>
                 <button onclick="stop()" class="parar">Parar</button>
-                <button class="resetar">Resetar</button>
+                <button onclick="resetar()" class="resetar">Resetar</button>
             </div>
         </div>
         <div class="quantidade-ciclos">
             <h1>Quantidade de ciclos</h1>
             <div class="historico">
-
+                <ol id="listaDeCiclo">
+                </ol>
             </div>
         </div>
     </main>
+    <!-- 
+        
+     -->
 </body>
 <script src="js/main.js"></script>
 
