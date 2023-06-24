@@ -1,62 +1,88 @@
 let min = document.querySelector('#minutos');
 let seg = document.querySelector('#segundos');
-let milis = document.querySelector('#milissegundos');
 
-let contadorMili = 0
-let contadorSeg = 0
-let contadorMin = 0
-let disparar
-
-function contaMilissegundos() {
-    contadorMili++
-    if (contadorMili < 10) {
-        milis.innerHTML = '0' + contadorMili
-    } else {
-        milis.innerHTML = contadorMili
-    }
-    if (contadorMili == 99) {
-        contadorMili = 0
-        contaSegundos()
-    }
-}
+let contadorSeg = 0;
+let contadorMin = 25;
+let cicloConcluido = false;
+let disparar;
 
 function contaSegundos() {
-    contadorSeg++
-    if (contadorSeg < 59) {
-        seg.innerHTML = '0' + contadorSeg
+  contadorSeg--;
+
+  if (contadorSeg < 0) {
+    contadorSeg = 59;
+    contaMinutos();
+  }
+
+  min.innerHTML = contadorMin.toString().padStart(2, '0');
+  seg.innerHTML = contadorSeg.toString().padStart(2, '0');
+
+  if (contadorMin === 0 && contadorSeg === 0) {
+    if (!cicloConcluido) {
+      cicloConcluido = true;
+      adicionaCicloConcluido();
+      contadorMin = 10;
+      stop(); 
+      exibirSecaoCiclos();
     } else {
-        seg.innerHTML = contadorSeg
+      cicloConcluido = false;
+      contadorMin = 1;
     }
-    if (contadorSeg == 59) {
-        contadorSeg = 0
-        contaMinutos()
-    }
+    contadorSeg = 0;
+  }
 }
 
 function contaMinutos() {
-    contadorMin++
-    if (contadorMin < 10) {
-        min.innerHTML = '0' + contadorMin
-    } else {
-        min.innerHTML = contadorMin
-    }
+  contadorMin--;
 }
 
 function iniciar() {
-    clearInterval(disparar)
-    disparar = setInterval(() => {
-        contaMilissegundos()
-    }, 10)
+  clearInterval(disparar);
+  disparar = setInterval(() => {
+    contaSegundos();
+  }, 1000);
 }
 
-function stop(){
-    clearInterval(disparar)
+function stop() {
+  clearInterval(disparar);
 }
-function resetar(){
-    min.innerHTML = '00'
-    seg.innerHTML = '00'
-    milis.innerHTML = '00'
+
+function resetar() {
+  clearInterval(disparar);
+  contadorMin = 25;
+  contadorSeg = 0;
+  cicloConcluido = false;
+  min.innerHTML = '25';
+  seg.innerHTML = '00';
+  limparCiclosConcluidos();
+  ocultarSecaoCiclos();
 }
-/* function criaCiclo(resetar){
-    
-} */
+
+function adicionaCicloConcluido() {
+  const container = document.querySelector('#container__quantidade__lista');
+  const novoItem = document.createElement('li');
+  novoItem.textContent = 'Ciclo concluído';
+  container.appendChild(novoItem);
+}
+
+function limparCiclosConcluidos() {
+  const container = document.querySelector('#container__quantidade__lista');
+  container.innerHTML = '';
+}
+
+function exibirSecaoCiclos() {
+  const secaoCiclos = document.querySelector('.container__quantidade_ciclos');
+  secaoCiclos.classList.remove('oculto');
+}
+
+function ocultarSecaoCiclos() {
+  const secaoCiclos = document.querySelector('.container__quantidade_ciclos');
+  secaoCiclos.classList.add('oculto');
+}
+
+function resetarCiclos() {
+  resetar();
+  ocultarSecaoCiclos();
+}
+
+

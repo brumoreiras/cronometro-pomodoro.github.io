@@ -24,18 +24,20 @@
                 <div class="container__cronometro__botoes">
                     <button class="container__cronometro__botao iniciar" onclick="iniciar()">Iniciar</button>
                     <button class="container__cronometro__botao parar" onclick="stop()">Parar</button>
-                    <button class="container__cronometro__botao" onclick="resetar()">Resetar</button>
+                    <button class="container__cronometro__botao resetarOcultar" onclick="resetar()">Resetar</button>
                 </div>
             </div>
         </div>
 
-        <div class="container__quantidade_ciclos">
+        <div class="container__quantidade_ciclos oculto" >
             <h3>Quantidade de ciclos</h3>
             <div class="container__quantidade__ciclos__historico">
                 <ol id="container__quantidade__lista">
                     
                 </ol>
-                <button class="container__cronometro__botao resetar" onclick="resetar()">Resetar Ciclo</button>
+               <!--  <button class="container__cronometro__botao resetar" onclick="resetar()">Resetar Ciclo</button> -->
+               <button class="container__cronometro__botao resetar" onclick="resetarCiclos()">Resetar Ciclo</button>
+
             </div>
         </div>
     </main>
