@@ -10,10 +10,8 @@
     --cor-fonte-numeros: #b5e8c3;
     --cor-fonte-botoes: #ebe7e0;
 
-
     --fonte: 'Krona One', sans-serif;
     --fonte-numero: 'Roboto', sans-serif;
-
 }
 
 * {
@@ -49,7 +47,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: .5rem;
-/*     width: 50%; */
     padding: 2rem;
     border-width: 2px;
     border-style: solid;
@@ -152,42 +149,9 @@ body {
 
 
 @media screen and (max-width: 1200px) {
-    header {
-        font-size: .7em;
-    }
 
     .principal {
-
-        height: auto;
-        box-shadow: none;
         padding: 1em;
     }
 
-    .principal h1 {
-        font-size: 1em;
-        text-align: center;
-        padding: .7em;
-    }
-
-    .tempo,
-    .quantidade-ciclos {
-        width: 90%;
-        height: auto;
-    }
-
-    .tempo p {
-        font-size: 2em;
-    }
-
-    button {
-        height: 2rem;
-    }
-
-    .quantidade-ciclos {
-        margin-bottom: 2em;
-    }
-
-    .quantidade-ciclos h1 {
-        margin-top: 1em;
-    }
 }
