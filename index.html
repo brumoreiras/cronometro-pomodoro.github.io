@@ -6,38 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/estilo.css">
-    <title>Cronômetro para estudo</title>
+    <title>FOCO NOS ESTUDOS</title>
 </head>
 
 <body>
-    <header>
+    <header class="cabecalho">
         <h1>Vamos focar nos estudos!</h1>
     </header>
     <main class="principal">
-        <h1>Cronômetro</h1>
-        <div class="tempo">
-            <p>
-                <span id="minutos">00</span>:
-                <span id="segundos">00</span>:
-                <span id="milissegundos">00</span>
-            </p>
-            <div class="botoes">
-                <button onclick="iniciar()" class="iniciar">Iniciar</button>
-                <button onclick="stop()" class="parar">Parar</button>
-                <button onclick="resetar()" class="resetar">Resetar</button>
+        <div class="container__cronometro">
+            <h2>Cronômetro</h2>
+            <div class="container__cronometro__tempo">
+                <p class="container__cronometro__tempo__numeros">
+                    <span id="minutos">25</span> :
+                    <span id="segundos">00</span>
+                </p>
+                <div class="container__cronometro__botoes">
+                    <button class="container__cronometro__botao iniciar" onclick="iniciar()">Iniciar</button>
+                    <button class="container__cronometro__botao parar" onclick="stop()">Parar</button>
+                    <button class="container__cronometro__botao" onclick="resetar()">Resetar</button>
+                </div>
             </div>
         </div>
-        <div class="quantidade-ciclos">
-            <h1>Quantidade de ciclos</h1>
-            <div class="historico">
-                <ol id="listaDeCiclo">
+
+        <div class="container__quantidade_ciclos">
+            <h3>Quantidade de ciclos</h3>
+            <div class="container__quantidade__ciclos__historico">
+                <ol id="container__quantidade__lista">
+                    <li>ciclo : 25: 00</li>
+                    <li>ciclo : 25: 00</li>
+                    <li>ciclo : 25: 00</li>
                 </ol>
+                <button class="container__cronometro__botao resetar" onclick="resetar()">Resetar Ciclo</button>
             </div>
         </div>
     </main>
-    <!-- 
-        
-     -->
 </body>
 <script src="js/main.js"></script>
 
